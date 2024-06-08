@@ -19,10 +19,11 @@ class CreateMenuItemsTable extends Migration
 			$table->string('slug')->unique();
 			$table->string('icon_url')->nullable()->default('');
 			$table->enum('type', ['link', 'button'])->default('link');
-			$table->boolean('is_accent');
+			$table->boolean('is_accent')->default(false);
 			$table->foreignId('menu_item_id')
+            ->nullable()
 			->constrained()
-			->onDelete('cascade');
+			->nullOnDelete();
 			$table->foreignId('menu_id')
 			->constrained()
 			->onDelete('cascade');
@@ -38,6 +39,6 @@ class CreateMenuItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menuitems');
+        Schema::dropIfExists('menu_items');
     }
 }

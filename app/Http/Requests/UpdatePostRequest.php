@@ -30,7 +30,7 @@ class UpdatePostRequest extends FormRequest
 			'content' => 'nullable|string',
 			'excerpt' => 'nullable|string',
 			'author' => 'nullable|string',
-			'category_id' => 'nullable|integer|exists:categorys,id',
+			'category_id' => 'nullable|integer|exists:categories,id',
 
         ];
     }

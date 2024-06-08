@@ -21,7 +21,7 @@ class PageController extends Controller
     	$pages = Page::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $pages = $pages->get();
         } else {
@@ -59,18 +59,19 @@ class PageController extends Controller
         $page = new Page;
 
         $page->title = $validated['title'] ?? null;
+        $page->slug = $validated['title'] ?? null;
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;
 		$page->section_list = $validated['section_list'] ?? null;
-		
+
         $page->save();
 
         $data = [
             'success'       => true,
             'page'   => $page
         ];
-        
+
         return response()->json($data);
     }
 
@@ -85,6 +86,16 @@ class PageController extends Controller
         $data = [
             'success' => true,
             'page' => $page
+        ];
+
+        return response()->json($data);
+    }
+
+    public function slug_show(string $slug)
+    {
+        $data = [
+            'success' => true,
+            'page' => Page::where('slug', $slug)->firstOrFail()
         ];
 
         return response()->json($data);
@@ -113,18 +124,19 @@ class PageController extends Controller
         $validated = $request->validated();
 
         $page->title = $validated['title'] ?? null;
+        $page->slug = $validated['title'] ?? null;
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;
 		$page->section_list = $validated['section_list'] ?? null;
-		
+
         $page->save();
 
         $data = [
             'success'       => true,
             'page'   => $page
         ];
-        
+
         return response()->json($data);
     }
 
@@ -135,7 +147,7 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Page $page)
-    {   
+    {
         $page->delete();
 
         $data = [

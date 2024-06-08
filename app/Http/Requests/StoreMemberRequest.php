@@ -52,8 +52,8 @@ class StoreMemberRequest extends FormRequest
 			'commercial_register_url' => 'required|string',
 			'idcard_url' => 'required|string',
 			'password' => 'required|string|unique:members',
-			'member_id' => 'required|integer|exists:members,id',
-			
+			'member_id' => 'nullable|integer|exists:members,id',
+
         ];
     }
 }

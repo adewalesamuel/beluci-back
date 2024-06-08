@@ -21,7 +21,7 @@ class PostController extends Controller
     	$posts = Post::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $posts = $posts->get();
         } else {
@@ -60,19 +60,19 @@ class PostController extends Controller
 
         $post->display_url = $validated['display_url'] ?? null;
 		$post->title = $validated['title'] ?? null;
-		$post->slug = $validated['slug'] ?? null;
+		$post->slug = $validated['title'] ?? null;
 		$post->content = $validated['content'] ?? null;
 		$post->excerpt = $validated['excerpt'] ?? null;
 		$post->author = $validated['author'] ?? null;
 		$post->category_id = $validated['category_id'] ?? null;
-		
+
         $post->save();
 
         $data = [
             'success'       => true,
             'post'   => $post
         ];
-        
+
         return response()->json($data);
     }
 
@@ -116,19 +116,19 @@ class PostController extends Controller
 
         $post->display_url = $validated['display_url'] ?? null;
 		$post->title = $validated['title'] ?? null;
-		$post->slug = $validated['slug'] ?? null;
+		$post->slug = $validated['title'] ?? null;
 		$post->content = $validated['content'] ?? null;
 		$post->excerpt = $validated['excerpt'] ?? null;
 		$post->author = $validated['author'] ?? null;
 		$post->category_id = $validated['category_id'] ?? null;
-		
+
         $post->save();
 
         $data = [
             'success'       => true,
             'post'   => $post
         ];
-        
+
         return response()->json($data);
     }
 
@@ -139,7 +139,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {   
+    {
         $post->delete();
 
         $data = [

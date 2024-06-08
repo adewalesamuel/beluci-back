@@ -19,8 +19,8 @@ class CreateCategorysTable extends Migration
 			$table->string('name');
 			$table->string('slug')->unique();
 			$table->foreignId('category_id')
-			->constrained()
-			->onDelete('cascade');
+			->nullable()
+			->nullOnDelete();
 			$table->softDeletes();
 			$table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateCategorysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorys');
+        Schema::dropIfExists('categories');
     }
 }

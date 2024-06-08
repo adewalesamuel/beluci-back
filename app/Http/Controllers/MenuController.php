@@ -21,7 +21,7 @@ class MenuController extends Controller
     	$menus = Menu::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $menus = $menus->get();
         } else {
@@ -60,14 +60,14 @@ class MenuController extends Controller
 
         $menu->name = $validated['name'] ?? null;
 		$menu->description = $validated['description'] ?? null;
-		
+
         $menu->save();
 
         $data = [
             'success'       => true,
             'menu'   => $menu
         ];
-        
+
         return response()->json($data);
     }
 
@@ -79,6 +79,8 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
+        $menu->menu_items;
+        
         $data = [
             'success' => true,
             'menu' => $menu
@@ -111,14 +113,14 @@ class MenuController extends Controller
 
         $menu->name = $validated['name'] ?? null;
 		$menu->description = $validated['description'] ?? null;
-		
+
         $menu->save();
 
         $data = [
             'success'       => true,
             'menu'   => $menu
         ];
-        
+
         return response()->json($data);
     }
 
@@ -129,7 +131,7 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Menu $menu)
-    {   
+    {
         $menu->delete();
 
         $data = [

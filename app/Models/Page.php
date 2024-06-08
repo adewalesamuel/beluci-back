@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Casts\Jsonify;
+use App\Casts\Slugify;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,7 +21,8 @@ class Page extends Model
     protected function casts(): array
     {
         return [
-            'section_list' => Jsonify::class,
+            'section_list' => AsArrayObject::class,
+            'slug' => Slugify::class,
         ];
     }
 }

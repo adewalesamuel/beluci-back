@@ -21,7 +21,7 @@ class PermissionController extends Controller
     	$permissions = Permission::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $permissions = $permissions->get();
         } else {
@@ -59,15 +59,15 @@ class PermissionController extends Controller
         $permission = new Permission;
 
         $permission->name = $validated['name'] ?? null;
-		$permission->slug = $validated['slug'] ?? null;
-		
+		$permission->slug = $validated['name'] ?? null;
+
         $permission->save();
 
         $data = [
             'success'       => true,
             'permission'   => $permission
         ];
-        
+
         return response()->json($data);
     }
 
@@ -110,15 +110,15 @@ class PermissionController extends Controller
         $validated = $request->validated();
 
         $permission->name = $validated['name'] ?? null;
-		$permission->slug = $validated['slug'] ?? null;
-		
+		$permission->slug = $validated['name'] ?? null;
+
         $permission->save();
 
         $data = [
             'success'       => true,
             'permission'   => $permission
         ];
-        
+
         return response()->json($data);
     }
 
@@ -129,7 +129,7 @@ class PermissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Permission $permission)
-    {   
+    {
         $permission->delete();
 
         $data = [

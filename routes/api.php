@@ -14,6 +14,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PostController;
 
@@ -50,7 +51,7 @@ Route::get('menu-items',[MenuItemController::class, 'index']);
 Route::get('menu-items/{menu_item}', [MenuItemController::class, 'show']);
 
 Route::get('pages',[PageController::class, 'index']);
-Route::get('pages/{page}', [PageController::class, 'show']);
+Route::get('pages/{slug}', [PageController::class, 'slug_show']);
 
 Route::get('events',[EventController::class, 'index']);
 Route::get('events/{event}', [EventController::class, 'show']);
@@ -58,10 +59,15 @@ Route::get('events/{event}', [EventController::class, 'show']);
 Route::get('posts',[PostController::class, 'index']);
 Route::get('posts/{post}', [PostController::class, 'show']);
 
-
-
 Route::middleware(['auth.api_token:member'])->group(function() {
     Route::post('logout', [ApiMemberAuthController::class, 'logout']);
+
+    Route::post('upload/image', [FileController::class, 'image_store']);
+    Route::post('upload/file', [FileController::class, 'file_store']);
+
+    Route::get('members',[MemberController::class, 'index']);
+    Route::post('members',[MemberController::class, 'user_store']);
+    Route::get('members/{member}', [MemberController::class, 'show']);
 
 });
 
@@ -70,6 +76,9 @@ Route::prefix('admin')->group(function() {
 
     Route::middleware('auth.api_token:admin')->group(function() {
         Route::post('logout', [ApiAdminAuthController::class, 'logout']);
+
+        Route::post('upload/image', [FileController::class, 'image_store']);
+        Route::post('upload/file', [FileController::class, 'file_store']);
 
         Route::get('permissions',[PermissionController::class, 'index']);
         Route::post('permissions',[PermissionController::class, 'store']);

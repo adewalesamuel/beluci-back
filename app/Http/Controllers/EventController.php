@@ -21,7 +21,7 @@ class EventController extends Controller
     	$events = Event::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $events = $events->get();
         } else {
@@ -64,18 +64,18 @@ class EventController extends Controller
 		$event->time = $validated['time'] ?? null;
 		$event->address = $validated['address'] ?? null;
 		$event->gps_location = $validated['gps_location'] ?? null;
-		$event->is_payed = $validated['is_payed'] ?? null;
+		$event->is_payed = $validated['is_payed'] ?? false;
 		$event->price = $validated['price'] ?? null;
 		$event->features = $validated['features'] ?? null;
 		$event->description = $validated['description'] ?? null;
-		
+
         $event->save();
 
         $data = [
             'success'       => true,
             'event'   => $event
         ];
-        
+
         return response()->json($data);
     }
 
@@ -123,18 +123,18 @@ class EventController extends Controller
 		$event->time = $validated['time'] ?? null;
 		$event->address = $validated['address'] ?? null;
 		$event->gps_location = $validated['gps_location'] ?? null;
-		$event->is_payed = $validated['is_payed'] ?? null;
+		$event->is_payed = $validated['is_payed'] ?? false;
 		$event->price = $validated['price'] ?? null;
 		$event->features = $validated['features'] ?? null;
 		$event->description = $validated['description'] ?? null;
-		
+
         $event->save();
 
         $data = [
             'success'       => true,
             'event'   => $event
         ];
-        
+
         return response()->json($data);
     }
 
@@ -145,7 +145,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Event $event)
-    {   
+    {
         $event->delete();
 
         $data = [

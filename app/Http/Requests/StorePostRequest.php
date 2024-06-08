@@ -24,14 +24,14 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'display_url' => 'required|string',
+            'display_url' => 'nullable|string',
 			'title' => 'required|string',
-			'slug' => 'required|string|unique:posts',
+			'slug' => 'nullable|string|unique:posts',
 			'content' => 'required|string',
 			'excerpt' => 'required|string',
 			'author' => 'required|string',
-			'category_id' => 'required|integer|exists:categorys,id',
-			
+			'category_id' => 'required|integer|exists:categories,id',
+
         ];
     }
 }

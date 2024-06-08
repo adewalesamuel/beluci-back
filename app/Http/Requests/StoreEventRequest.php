@@ -30,11 +30,11 @@ class StoreEventRequest extends FormRequest
 			'time' => 'required|string',
 			'address' => 'required|string',
 			'gps_location' => 'required|string',
-			'is_payed' => 'required|boolean',
-			'price' => 'required|integer',
-			'features' => 'required|json',
+			'is_payed' => 'nullable|boolean',
+			'price' => 'nullable|integer',
+			'features' => 'nullable|json',
 			'description' => 'required|string',
-			
+
         ];
     }
 }

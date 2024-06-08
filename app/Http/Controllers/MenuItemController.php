@@ -18,7 +18,7 @@ class MenuItemController extends Controller
      */
     public function index(Request $request)
     {
-    	$menu_items = MenuItem::where('id', '>', -1)
+    	$menu_items = MenuItem::with(['menu', 'menu_item'])
         ->orderBy('created_at', 'desc');
 
         if ($request->input('page') == null ||
@@ -59,10 +59,10 @@ class MenuItemController extends Controller
         $menu_item = new MenuItem;
 
         $menu_item->name = $validated['name'] ?? null;
-		$menu_item->slug = $validated['slug'] ?? null;
+		$menu_item->slug = $validated['name'] ?? null;
 		$menu_item->icon_url = $validated['icon_url'] ?? null;
-		$menu_item->type = $validated['type'] ?? null;
-		$menu_item->is_accent = $validated['is_accent'] ?? null;
+		$menu_item->type = $validated['type'] ?? 'link';
+		$menu_item->is_accent = $validated['is_accent'] ?? false;
 		$menu_item->menu_item_id = $validated['menu_item_id'] ?? null;
 		$menu_item->menu_id = $validated['menu_id'] ?? null;
 
@@ -115,7 +115,7 @@ class MenuItemController extends Controller
         $validated = $request->validated();
 
         $menu_item->name = $validated['name'] ?? null;
-		$menu_item->slug = $validated['slug'] ?? null;
+		$menu_item->slug = $validated['name'] ?? null;
 		$menu_item->icon_url = $validated['icon_url'] ?? null;
 		$menu_item->type = $validated['type'] ?? null;
 		$menu_item->is_accent = $validated['is_accent'] ?? null;

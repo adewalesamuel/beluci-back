@@ -27,7 +27,7 @@ class UpdateCategoryRequest extends FormRequest
             'display_url' => 'nullable|string',
 			'name' => 'nullable|string',
 			'slug' => 'nullable|string',
-			'category_id' => 'nullable|integer|exists:categorys,id',
+			'category_id' => 'nullable|integer|exists:categories,id',
 
         ];
     }

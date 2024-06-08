@@ -24,11 +24,11 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'display_url' => 'required|string',
+            'display_url' => 'nullable|string',
 			'name' => 'required|string',
-			'slug' => 'required|string|unique:categorys',
-			'category_id' => 'required|integer|exists:categorys,id',
-			
+			'slug' => 'nullable|string|unique:categories',
+			'category_id' => 'nullable|integer|exists:categories,id',
+
         ];
     }
 }

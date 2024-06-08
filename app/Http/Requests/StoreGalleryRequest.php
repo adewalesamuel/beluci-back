@@ -26,9 +26,9 @@ class StoreGalleryRequest extends FormRequest
         return [
             'img_url' => 'required|string',
 			'title' => 'required|string',
-			'slug' => 'required|string|unique:gallerys',
+			'slug' => 'nullable|string|unique:galleries',
 			'description' => 'required|string',
-			
+
         ];
     }
 }

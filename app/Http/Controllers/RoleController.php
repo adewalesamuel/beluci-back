@@ -21,7 +21,7 @@ class RoleController extends Controller
     	$roles = Role::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $roles = $roles->get();
         } else {
@@ -59,16 +59,16 @@ class RoleController extends Controller
         $role = new Role;
 
         $role->name = $validated['name'] ?? null;
-		$role->slug = $validated['slug'] ?? null;
+		$role->slug = $validated['name'] ?? null;
 		$role->permissions = $validated['permissions'] ?? null;
-		
+
         $role->save();
 
         $data = [
             'success'       => true,
             'role'   => $role
         ];
-        
+
         return response()->json($data);
     }
 
@@ -111,16 +111,16 @@ class RoleController extends Controller
         $validated = $request->validated();
 
         $role->name = $validated['name'] ?? null;
-		$role->slug = $validated['slug'] ?? null;
+		$role->slug = $validated['name'] ?? null;
 		$role->permissions = $validated['permissions'] ?? null;
-		
+
         $role->save();
 
         $data = [
             'success'       => true,
             'role'   => $role
         ];
-        
+
         return response()->json($data);
     }
 
@@ -131,7 +131,7 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Role $role)
-    {   
+    {
         $role->delete();
 
         $data = [

@@ -25,13 +25,13 @@ class StoreMenuItemRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-			'slug' => 'required|string|unique:menuitems',
-			'icon_url' => 'required|string',
-			'type' => 'required|string',
-			'is_accent' => 'required|boolean',
-			'menu_item_id' => 'required|integer|exists:menu_items,id',
+			'slug' => 'nullable|string|unique:menu_items',
+			'icon_url' => 'nullable|string',
+			'type' => 'nullable|string',
+			'is_accent' => 'nullable|boolean',
+			'menu_item_id' => 'nullable|integer|exists:menu_items,id',
 			'menu_id' => 'required|integer|exists:menus,id',
-			
+
         ];
     }
 }

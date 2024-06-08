@@ -29,8 +29,8 @@ class CreateMembersTable extends Migration
 			$table->string('sector')->nullable()->default('');
 			$table->text('other_details')->nullable()->default('');
 			$table->enum('company_category', [
-                'Société non-résidente en CI', 
-                'Société de moins de 1 Md CFA de CA', 
+                'Société non-résidente en CI',
+                'Société de moins de 1 Md CFA de CA',
                 'Société de plus de 1 Md CFA de CA'])->default('Société non-résidente en CI');
 			$table->string('representative_fullname')->nullable()->default('');
 			$table->string('position')->nullable()->default('');
@@ -47,8 +47,9 @@ class CreateMembersTable extends Migration
 			$table->string('idcard_url')->nullable()->default('');
 			$table->string('password')->unique();
 			$table->foreignId('member_id')
-			->constrained()
-			->onDelete('cascade');
+			->nullable()
+            ->constrained()
+			->nullOnDelete();
             $table->string('api_token');
             $table->timestamp('email_verified_at')->nullable();
 			$table->rememberToken();

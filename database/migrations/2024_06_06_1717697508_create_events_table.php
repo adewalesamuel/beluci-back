@@ -21,9 +21,9 @@ class CreateEventsTable extends Migration
 			$table->string('time')->nullable()->default('');
 			$table->string('address')->nullable()->default('');
 			$table->string('gps_location')->nullable()->default('');
-			$table->boolean('is_payed');
-			$table->integer('price');
-			$table->json('features');
+			$table->boolean('is_payed')->default(false);
+			$table->integer('price')->nullable();
+			$table->json('features')->nullable();
 			$table->text('description')->nullable()->default('');
 			$table->softDeletes();
 			$table->timestamps();

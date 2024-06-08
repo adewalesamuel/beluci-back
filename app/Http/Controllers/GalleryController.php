@@ -21,7 +21,7 @@ class GalleryController extends Controller
     	$gallerys = Gallery::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
-        if ($request->input('page') == null || 
+        if ($request->input('page') == null ||
             $request->input('page') == '') {
             $gallerys = $gallerys->get();
         } else {
@@ -60,16 +60,16 @@ class GalleryController extends Controller
 
         $gallery->img_url = $validated['img_url'] ?? null;
 		$gallery->title = $validated['title'] ?? null;
-		$gallery->slug = $validated['slug'] ?? null;
+		$gallery->slug = $validated['title'] ?? null;
 		$gallery->description = $validated['description'] ?? null;
-		
+
         $gallery->save();
 
         $data = [
             'success'       => true,
             'gallery'   => $gallery
         ];
-        
+
         return response()->json($data);
     }
 
@@ -113,16 +113,16 @@ class GalleryController extends Controller
 
         $gallery->img_url = $validated['img_url'] ?? null;
 		$gallery->title = $validated['title'] ?? null;
-		$gallery->slug = $validated['slug'] ?? null;
+		$gallery->slug = $validated['title'] ?? null;
 		$gallery->description = $validated['description'] ?? null;
-		
+
         $gallery->save();
 
         $data = [
             'success'       => true,
             'gallery'   => $gallery
         ];
-        
+
         return response()->json($data);
     }
 
@@ -133,7 +133,7 @@ class GalleryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Gallery $gallery)
-    {   
+    {
         $gallery->delete();
 
         $data = [
