@@ -7,7 +7,7 @@ use App\Models\Page;
 use App\Http\Auth;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
-
+use Exception;
 
 class PageController extends Controller
 {
@@ -63,7 +63,7 @@ class PageController extends Controller
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;
-		$page->section_list = $validated['section_list'] ?? null;
+		$page->section_list = json_decode($validated['section_list']) ?? null;
 
         $page->save();
 
@@ -128,7 +128,7 @@ class PageController extends Controller
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;
-		$page->section_list = $validated['section_list'] ?? null;
+		$page->section_list = json_decode($validated['section_list']) ?? null;
 
         $page->save();
 

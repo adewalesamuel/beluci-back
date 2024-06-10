@@ -61,80 +61,80 @@ class PageSeeder extends Seeder
                     [
                         "name" => "homeTeamList",
                         "title" => "Présentation du conseil d'administration",
-                        "teamMemberList" => json_encode([
+                        "item_list" => json_encode([
                             [
                                 "name" => "Michael Eeckout",
                                 "job" => "Administrateur",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "Pierre DECLERCK",
                                 "job" => "Président",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "M. Maximilien LEMAIRE",
                                 "job" => "Président Honoraire / Fondateur / Président d'Honneur",
-                                "linkedinUrl" => ""
+                                "linkedinLink" => ""
                             ],
                             [
                                 "name" => "S. E.Mme Carole van EYLL",
                                 "job" => "Órósirerte Fonneur",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "M. Jean-Philippe DIEUDONNE",
                                 "job" => "Secretaire General",
-                                "linkedinUrl" => ""
+                                "linkedinLink" => ""
                             ],
                             [
                                 "name" => "Monsieur Lionel GREBAN",
                                 "job" => "Vice-Président",
-                                "linkedinUrl" => "likn"
+                                "linkedinLink" => "likn"
                             ],
                             [
                                 "name" => "Jean-François ALBRECHT",
                                 "job" => "Trésorier",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "M. Antonioni BASSIT",
                                 "job" => "Administrateur",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "Mme Nadine GELBGRAS",
                                 "job" => "Administratrice",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "M. Vincent PIERARD",
                                 "job" => "Administrateur",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "Mme Hilde LAMBILOTTE",
                                 "job" => "Présidente honoraire",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ],
                             [
                                 "name" => "Mme Valentine GEURTS AKPESS",
                                 "job" => "Presidente honoraire",
-                                "linkedinUrl" => " "
+                                "linkedinLink" => " "
                             ],
                             [
                                 "name" => "M. Karim RAJAN",
                                 "job" => "Président honoraire",
-                                "linkedinUrl" => "link"
+                                "linkedinLink" => "link"
                             ]
                         ])
                     ],
                     [
                         "name" => "homeTeamDetail",
                         "title" => "Présentation du conseil d'administration",
-                        "imageLandscapeUrl" => '',
-                        "imagePortraitUrl" => '',
-                        "teamMemberList" => json_encode([
+                        "landscapeImgUrl" => '',
+                        "portraitImgUrl" => '',
+                        "item_list" => json_encode([
                             [
                                 "name" => "Salomé YSEBAERT",
                                 "job" => "Responsable de l'implémentation du projet PEM N'ZASSA",
@@ -167,7 +167,7 @@ class PageSeeder extends Seeder
                         "name" => "service",
                         "title" => "Nous accompagnons nos membres dans le développement de leur entreprise",
                         "description" => "La BELUCI est un véritable facilitateur pour s'ouvrir sur de nouveaux marchés et une toile de contacts professionels pour échanger avec des millires d'entreprises à traveres le réseau des Chambres de Commerce et d'industrie de Belgique, au Grand-Duché de Luxembourg et en Côte d'Ivoire",
-                        "serviceList" => [
+                        "item_list" => [
                             [
                                 "number" => "01",
                                 "title" => "Propositions d'affaires",
@@ -225,7 +225,7 @@ class PageSeeder extends Seeder
                     [
                         "name" => "pemFeature",
                         "title" => "Qu'offre concrètement le PEM N'ZASSA ?",
-                        "featureList" => [
+                        "item_list" => [
                             [
                                 "number" => "01",
                                 "description" => "Accès à des réseaux d'entrepreneurs, d'entreprises et d'incubateurs en Côte d'Ivoire et en Belgique."
@@ -243,16 +243,16 @@ class PageSeeder extends Seeder
                                 "description" => "Une organisation d'événements et de rencontres B2B avec des entrepreneurs ivoiriens et belges."
                             ]
                         ],
-                        "questionList" => [
+                        "item_list" => [
                             "Notre projet bénéficie du soutien précieux de la Team Belgium, une coalition dynamique composée des services de l'ambassade du Royaume de Belgique, d'Enabel, des agences économiques telles que l'Awex, Flanders Trade, et hub.brussels, ainsi que de nombreux autres acteurs engagés.",
                             "Vous êtes entrepreneur basé en Belgique et intéressé par la Côte d'Ivoire ?",
                             "Ou entrepreneur ivoirien intéressé par la Belgique ?"
                         ],
-                        "ctaList" => [
+                        "item_list" => [
                             "Alors, le projet PEM N'ZASSA est fait pour vous !",
                             "Voici les différentes étapes :"
                         ],
-                        "stepList" => [
+                        "item_list" => [
                             [
                                 "number" => "Étape 1",
                                 "title" => "LE MATCHING",
