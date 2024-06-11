@@ -61,7 +61,7 @@ class PageSeeder extends Seeder
                     [
                         "name" => "homeTeamList",
                         "title" => "Présentation du conseil d'administration",
-                        "item_list" => json_encode([
+                        "item_list" => [
                             [
                                 "name" => "Michael Eeckout",
                                 "job" => "Administrateur",
@@ -127,14 +127,14 @@ class PageSeeder extends Seeder
                                 "job" => "Président honoraire",
                                 "linkedinLink" => "link"
                             ]
-                        ])
+                        ]
                     ],
                     [
                         "name" => "homeTeamDetail",
                         "title" => "Présentation du conseil d'administration",
                         "landscapeImgUrl" => '',
                         "portraitImgUrl" => '',
-                        "item_list" => json_encode([
+                        "item_list" => [
                             [
                                 "name" => "Salomé YSEBAERT",
                                 "job" => "Responsable de l'implémentation du projet PEM N'ZASSA",
@@ -147,7 +147,7 @@ class PageSeeder extends Seeder
                                 "email" => "secretariat.beluci@gmail.com",
                                 "phoneNumber" => "(+225) 07 07 40 96 72"
                             ]
-                        ])
+                        ]
                     ]
                 ])
             ],
