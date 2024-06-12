@@ -61,16 +61,16 @@ class PageSeeder extends Seeder
                     [
                         "name" => "homeTeamList",
                         "title" => "Présentation du conseil d'administration",
-                        "item_list" => [
+                        "team_item_list" => [
                             [
-                                "name" => "Michael Eeckout",
+                                "name" => "M. Michael Eeckout",
                                 "job" => "Administrateur",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "http://link"
                             ],
                             [
-                                "name" => "Pierre DECLERCK",
+                                "name" => "M. Pierre DECLERCK",
                                 "job" => "Président",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "http://linkedin.com/in/pierre-declerck-92b421"
                             ],
                             [
                                 "name" => "M. Maximilien LEMAIRE",
@@ -79,8 +79,8 @@ class PageSeeder extends Seeder
                             ],
                             [
                                 "name" => "S. E.Mme Carole van EYLL",
-                                "job" => "Órósirerte Fonneur",
-                                "linkedinLink" => "link"
+                                "job" => "Présidente d'honneur",
+                                "linkedinLink" => "https://www.linkedin.com/in/carolevaneyll"
                             ],
                             [
                                 "name" => "M. Jean-Philippe DIEUDONNE",
@@ -88,34 +88,34 @@ class PageSeeder extends Seeder
                                 "linkedinLink" => ""
                             ],
                             [
-                                "name" => "Monsieur Lionel GREBAN",
+                                "name" => "M. Lionel GREBAN",
                                 "job" => "Vice-Président",
-                                "linkedinLink" => "likn"
+                                "linkedinLink" => "https://www.linkedin.com/in/lionel-gr%C3%A9ban-de-saint-germain-a455813a"
                             ],
                             [
                                 "name" => "Jean-François ALBRECHT",
                                 "job" => "Trésorier",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "https://linkedin.com/in/albrecht-jean-francois-ba264550"
                             ],
                             [
                                 "name" => "M. Antonioni BASSIT",
                                 "job" => "Administrateur",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "https://linkedin.com/in/antonioni-bassit-38173440"
                             ],
                             [
                                 "name" => "Mme Nadine GELBGRAS",
                                 "job" => "Administratrice",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "https://www.linkedin.com/in/gelbgrasnadine"
                             ],
                             [
                                 "name" => "M. Vincent PIERARD",
                                 "job" => "Administrateur",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "http://linkedin.com/in/vincent-pierard-a330834"
                             ],
                             [
                                 "name" => "Mme Hilde LAMBILOTTE",
                                 "job" => "Présidente honoraire",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "https://linkedin.com/in/hilde-lambilotte-egnankou-97303a23"
                             ],
                             [
                                 "name" => "Mme Valentine GEURTS AKPESS",
@@ -125,7 +125,7 @@ class PageSeeder extends Seeder
                             [
                                 "name" => "M. Karim RAJAN",
                                 "job" => "Président honoraire",
-                                "linkedinLink" => "link"
+                                "linkedinLink" => "http://linkedin.com/in/karim-rajan-2a26a7"
                             ]
                         ]
                     ],
@@ -134,7 +134,7 @@ class PageSeeder extends Seeder
                         "title" => "Présentation du conseil d'administration",
                         "landscapeImgUrl" => '',
                         "portraitImgUrl" => '',
-                        "item_list" => [
+                        "team_detail_item_list" => [
                             [
                                 "name" => "Salomé YSEBAERT",
                                 "job" => "Responsable de l'implémentation du projet PEM N'ZASSA",
@@ -153,7 +153,7 @@ class PageSeeder extends Seeder
             ],
             [
                 'title' => 'Nos services',
-                'slug' => 'services',
+                'slug' => 'nos-services',
                 'description' => "La page de services",
                 'keywords' => 'accueil',
                 'display_img_url' => '',
@@ -166,37 +166,37 @@ class PageSeeder extends Seeder
                     [
                         "name" => "service",
                         "title" => "Nous accompagnons nos membres dans le développement de leur entreprise",
-                        "description" => "La BELUCI est un véritable facilitateur pour s'ouvrir sur de nouveaux marchés et une toile de contacts professionels pour échanger avec des millires d'entreprises à traveres le réseau des Chambres de Commerce et d'industrie de Belgique, au Grand-Duché de Luxembourg et en Côte d'Ivoire",
-                        "item_list" => [
+                        "description" => "La BELUCI est un véritable facilitateur pour s'ouvrir à de nouveaux marchés et un réseau de contacts professionnels pour échanger avec des milliers d'entreprises à travers le réseau des Chambres de Commerce et d'Industrie de Belgique, du Grand-Duché de Luxembourg et de la Côte d'Ivoire.",
+                        "service_item_list" => [
                             [
                                 "number" => "01",
                                 "title" => "Propositions d'affaires",
-                                "description" => "Vous êtes à la recherche de contacts commerciaux d'entreprises ivoiriennes ou belges ? La BELUCI dispose de fichiers d'entreprises. d'annuaires professionnels et de banques de données sectorielles",
+                                "description" => "À la recherche de nouveaux partenariats commerciaux avec des entreprises ivoiriennes ou belges ? La BELUCI vous offre une variété d'opportunités grâce à ses répertoires d'entreprises, ses annuaires professionnels et ses bases de données sectorielles.",
                             ],
                             [
                                 "number" => "02",
                                 "title" => "Networking",
-                                "description" => "Nous organisons des évènements qui ontpour but d'agrancir votre reseau professionnel afin d'encourager la formation de partenariats",
+                                "description" => "Boostez votre réseau professionnel en participant à nos événements de networking. Élargissez vos contacts professionnels, créez de nouveaux partenariats et dynamisez votre activité.",
                             ],
                             [
                                 "number" => "03",
-                                "title" => "Accès continu",
-                                "description" => "Grace a notre application communautaire voUs bouvez rester en contact avec nos membres et promouvoir vos Services.",
+                                "title" => "Espace Membre",
+                                "description" => "Notre application communautaire vous permet de maintenir le contact avec nos membres et de promouvoir vos services de manière continue.",
                             ],
                             [
                                 "number" => "04",
                                 "title" => "Informations & communications",
-                                "description" => "Nous restons a lecoute des dernieres actualités nationales pour que vous soyez les premiers informés lors d'une nouvelle importante",
+                                "description" => "Restez à jour avec les dernières actualités nationales avec nous ! Soyez les premiers à être informés dès qu'une nouvelle importante se produit.",
                             ],
                             [
                                 "number" => "05",
                                 "title" => "Conseil & Acompagnement",
-                                "description" => "Nous offrons les ressources nécessaires pour conseiller les entreprises étrangères sur les opportunités commerciales qui s'ottrent a elles en cote d'ivoire.",
+                                "description" => "Nous mettons à votre disposition les ressources nécessaires pour conseiller les entreprises étrangères sur les opportunités commerciales offertes en Côte d'Ivoire.",
                             ],
                             [
                                 "number" => "06",
                                 "title" => "Formations",
-                                "description" => "Nous vous proposons des formations dans divers domaines tels que des formations de gestion de ressources humaines, de comptabilité, de transformation digitale.",
+                                "description" => "Bénéficiez d'une variété de formations dans différents domaines tels que la gestion des ressources humaines, la comptabilité et la transformation digitale, afin de développer vos compétences professionnelles et d'optimiser la croissance de votre entreprise.",
                             ]
                         ]
                     ]
@@ -204,7 +204,7 @@ class PageSeeder extends Seeder
             ],
             [
                 'title' => "Pem N'ZASSA",
-                'slug' => 'pem-n-zassa',
+                'slug' => 'pem-nzassa',
                 'description' => "Le projet pem N'Zassa",
                 'keywords' => 'accueil',
                 'display_img_url' => '',
@@ -224,8 +224,8 @@ class PageSeeder extends Seeder
                     ],
                     [
                         "name" => "pemFeature",
-                        "title" => "Qu'offre concrètement le PEM N'ZASSA ?",
-                        "item_list" => [
+                        "title" => "Que propose le projet « PEM N'Zassa ? »",
+                        "feature_item_list" => [
                             [
                                 "number" => "01",
                                 "description" => "Accès à des réseaux d'entrepreneurs, d'entreprises et d'incubateurs en Côte d'Ivoire et en Belgique."
@@ -243,16 +243,26 @@ class PageSeeder extends Seeder
                                 "description" => "Une organisation d'événements et de rencontres B2B avec des entrepreneurs ivoiriens et belges."
                             ]
                         ],
-                        "item_list" => [
-                            "Notre projet bénéficie du soutien précieux de la Team Belgium, une coalition dynamique composée des services de l'ambassade du Royaume de Belgique, d'Enabel, des agences économiques telles que l'Awex, Flanders Trade, et hub.brussels, ainsi que de nombreux autres acteurs engagés.",
-                            "Vous êtes entrepreneur basé en Belgique et intéressé par la Côte d'Ivoire ?",
-                            "Ou entrepreneur ivoirien intéressé par la Belgique ?"
+                        "about_item_list" => [
+                            [
+                                "description" =>  "Ce projet bénéficie du soutien précieux de la Team Belgium, une coalition dynamique composée des services de l'ambassade du Royaume de Belgique, d'Enabel, des agences économiques telles que l'Awex, Flanders Trade, et hub.brussels, ainsi que de nombreux autres acteurs engagés.",
+                            ],
+                            [
+                                "description" =>  "Vous êtes entrepreneur basé en Belgique et intéressé par la Côte d'Ivoire ?",
+                            ],
+                            [
+                                "description" =>  "Ou entrepreneur ivoirien intéressé par la Belgique ?",
+                            ]
                         ],
-                        "item_list" => [
-                            "Alors, le projet PEM N'ZASSA est fait pour vous !",
-                            "Voici les différentes étapes :"
+                        "question_item_list" => [
+                            [
+                                "description" => "Alors, le projet PEM N'ZASSA est fait pour vous !",
+                            ],
+                            [
+                                "description" => "Voici les différentes étapes :",
+                            ],
                         ],
-                        "item_list" => [
+                        "step_item_list" => [
                             [
                                 "number" => "Étape 1",
                                 "title" => "LE MATCHING",
@@ -287,7 +297,7 @@ class PageSeeder extends Seeder
                     [
                         "name" => "memberAbout",
                         "title" => "COMPLÉTEZ VOTRE FICHE D'INSCRIPTION ET REJOIGNEZ NOTRE RÉSEAU EN CÔTE D'IVOIRE!",
-                        "description" => "Devenir membre de la Chambre de commerce belge et luxembourgeoise de Côte d'Ivoire c'est non seulement vous aider à faire des affaires en Côte d'Ivoire depuis la Belgique ou le Luxembourg et à vous guider à travers le paysage entrepreneurial ivoirien, mais c'est également bénéficier de nombreux avantages directs. En effet, en adhérant vous pourrez profiter de notre large réseau de contacts pour renforcer votre activité à travers les différents rendez-vous d'affaires ou évènements que nous organisons tout au long de l'année.",
+                        "description" => "Devenir membre de la Chambre de commerce belge et luxembourgeoise de Côte d'Ivoire c'est non seulement vous aider à faire des affaires en Côte d'Ivoire depuis la Belgique ou le Luxembourg, vous guider à travers le paysage entrepreneurial ivoirien, ainsi qu’également bénéficier de nombreux avantages exclusifs. En effet, en adhérant vous pourrez profiter de notre large réseau de contacts pour renforcer votre activité à travers les différents rendez-vous d'affaires, formations, ateliers et évènements que nous organisons tout au long de l'année.",
                         "buttonText" => "Devenir membre",
                         "buttonLink" => "formulaire-membre"
                     ]

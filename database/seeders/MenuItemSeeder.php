@@ -28,7 +28,7 @@ class MenuItemSeeder extends Seeder
             ],
             [
                 'name' => 'Services',
-                'slug' => 'services',
+                'slug' => 'nos-services',
                 'icon_url' => '',
                 'is_accent' => false,
                 'menu_item_id' => null,
@@ -46,7 +46,7 @@ class MenuItemSeeder extends Seeder
             ],
             [
                 'name' => 'Pem N\'zassa',
-                'slug' => 'pem-n-zassa',
+                'slug' => 'pem-nzassa',
                 'icon_url' => '',
                 'is_accent' => false,
                 'menu_item_id' => null,
