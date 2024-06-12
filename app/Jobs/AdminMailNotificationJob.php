@@ -33,7 +33,7 @@ class AdminMailNotificationJob implements ShouldQueue
      */
     public function handle()
     {
-        Notification::route('mail', env("MAIL_ADMIN"))
+        Notification::route('mail', config('mail.to.address'))
         ->notify($this->notification_instance);
     }
 }

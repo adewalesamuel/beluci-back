@@ -152,6 +152,28 @@ class PageSeeder extends Seeder
                 ])
             ],
             [
+                'title' => "Nos évènements",
+                'slug' => 'nos-evenements',
+                'description' => "La page des évènements",
+                'keywords' => 'evenments',
+                'display_img_url' => '',
+                "section_list" => json_encode([
+                    [
+                        "name" => "titleHeader",
+                        "title" => "Nos Évènements",
+                        "backgroundImgUrl" => '',
+                    ],
+                    [
+                        "name" => "eventAbout",
+                        "title" => "DES ACTIVITES DE RÉSEAUTAGE QUI À ELLES SEULES ENTABILISENT VOTRE ADHÉSION",
+                        "description" => "Consultez la liste des évènements à venir",
+                    ],
+                    [
+                        "name" => "eventList",
+                    ]
+                ]),
+            ],
+            [
                 'title' => 'Nos services',
                 'slug' => 'nos-services',
                 'description' => "La page de services",
@@ -302,7 +324,27 @@ class PageSeeder extends Seeder
                         "buttonLink" => "formulaire-membre"
                     ]
                 ])
+            ],
+            [
+                'title' => "Contact",
+                'slug' => 'contact',
+                'description' => "La page de contact",
+                'keywords' => 'contact',
+                'display_img_url' => '',
+                "section_list" => json_encode([
+                    [
+                        "name" => "titleHeader",
+                        "title" => "Contactez nous",
+                        "backgroundImgUrl" => ''
+                    ],
+                    [
+                        "name" => "contactAbout",
+                        "title" => "Formulaire de contact",
+                        "description" => "Remplissez le formulaire de contact",
+                    ]
+                ])
             ]
+
         ]);
     }
 }

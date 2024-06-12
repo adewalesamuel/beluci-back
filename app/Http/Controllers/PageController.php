@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Http\Auth;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
+use App\Models\Event;
 use Exception;
 
 class PageController extends Controller
@@ -93,9 +94,18 @@ class PageController extends Controller
 
     public function slug_show(string $slug)
     {
+        $events = [];
+        $page = Page::where('slug', $slug)->firstOrFail();
+
+        if ($slug == "accueil")
+            $events = Event::orderBy('created_at', 'desc')->limit(1)->get();
+
+        if (isset($page->section_list[1]))
+            $page->section_list[1]['events'] = $events;
+
         $data = [
             'success' => true,
-            'page' => Page::where('slug', $slug)->firstOrFail()
+            'page' => $page->jsonserialize()
         ];
 
         return response()->json($data);

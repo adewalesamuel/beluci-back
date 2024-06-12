@@ -2,24 +2,30 @@
 
 namespace App\Notifications;
 
-use App\Models\Member;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MemberRegisterNotification extends Notification
+class ContactFormNotification extends Notification
 {
     use Queueable;
 
-    public Member $member;
+    public string $fullname;
+    public string $email;
+    public string $message;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($member)
+    public function __construct(
+        string $fullname,
+        string $email,
+        string $message)
     {
-        $this->member = $member;
+        $this->fullname = $fullname;
+        $this->email = $email;
+        $this->message = $message;
     }
 
     /**
@@ -38,9 +44,13 @@ class MemberRegisterNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject("Nouvelle inscription de membre")
-                    ->line('Le membre ' . $this->member->fullname . " viens de s'inscrire")
-                    ->action('Voir plus', url(config('app.front_url') . "/members/" . $this->member->id));
+                    ->subject("Formulaire de contact " . config('app.name'))
+                    ->greeting("Hello admin")
+                    ->line('Un utilisateur à rempli le  formulaire de contact.')
+                    ->line('Nom : ' . $this->fullname)
+                    ->line('Email : ' . $this->email)
+                    ->line('Message : ' . $this->message)
+                    ->salutation('Message envoyé depuis ' . config('app.url'));
     }
 
     /**

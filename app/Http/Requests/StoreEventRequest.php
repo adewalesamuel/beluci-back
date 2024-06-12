@@ -27,13 +27,13 @@ class StoreEventRequest extends FormRequest
             'img_url' => 'required|string',
 			'name' => 'required|string',
 			'date' => 'required|date',
-			'time' => 'required|string',
+			'time' => 'nullable|string',
 			'address' => 'required|string',
-			'gps_location' => 'required|string',
+			'gps_location' => 'nullable|string',
 			'is_payed' => 'nullable|boolean',
 			'price' => 'nullable|integer',
 			'features' => 'nullable|json',
-			'description' => 'required|string',
+			'description' => 'nullable|string',
 
         ];
     }

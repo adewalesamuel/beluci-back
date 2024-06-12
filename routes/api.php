@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ApiAdminAuthController;
 use App\Http\Controllers\Auth\ApiMemberAuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PageController;
@@ -58,6 +59,8 @@ Route::get('events/{event}', [EventController::class, 'show']);
 
 Route::get('posts',[PostController::class, 'index']);
 Route::get('posts/{post}', [PostController::class, 'show']);
+
+Route::post('contact', [ContactController::class, 'store']);
 
 Route::middleware(['auth.api_token:member'])->group(function() {
     Route::post('logout', [ApiMemberAuthController::class, 'logout']);
