@@ -62,14 +62,15 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 
 Route::post('contact', [ContactController::class, 'store']);
 
+Route::post('upload/image', [FileController::class, 'image_store']);
+Route::post('upload/file', [FileController::class, 'file_store']);
+
+Route::post('members',[ApiMemberAuthController::class, 'register']);
+
 Route::middleware(['auth.api_token:member'])->group(function() {
     Route::post('logout', [ApiMemberAuthController::class, 'logout']);
 
-    Route::post('upload/image', [FileController::class, 'image_store']);
-    Route::post('upload/file', [FileController::class, 'file_store']);
-
     Route::get('members',[MemberController::class, 'index']);
-    Route::post('members',[MemberController::class, 'user_store']);
     Route::get('members/{member}', [MemberController::class, 'show']);
 
 });
