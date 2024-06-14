@@ -65,7 +65,7 @@ class PageSeeder extends Seeder
                             [
                                 "name" => "M. Michael Eeckout",
                                 "job" => "Administrateur",
-                                "linkedinLink" => "http://link"
+                                "linkedinLink" => "http://localhost:5173/formulaire-membre"
                             ],
                             [
                                 "name" => "M. Pierre DECLERCK",
@@ -136,12 +136,14 @@ class PageSeeder extends Seeder
                         "portraitImgUrl" => '',
                         "team_detail_item_list" => [
                             [
+                                "imgUrl" => "",
                                 "name" => "Salomé YSEBAERT",
                                 "job" => "Responsable de l'implémentation du projet PEM N'ZASSA",
                                 "email" => "salmome.beluci@gmail.com",
                                 "phoneNumber" => ""
                             ],
                             [
+                                "imgUrl" => "",
                                 "name" => "Paulina ADEMOLA",
                                 "job" => "Assistante administrative",
                                 "email" => "secretariat.beluci@gmail.com",
@@ -191,21 +193,25 @@ class PageSeeder extends Seeder
                         "description" => "La BELUCI est un véritable facilitateur pour s'ouvrir à de nouveaux marchés et un réseau de contacts professionnels pour échanger avec des milliers d'entreprises à travers le réseau des Chambres de Commerce et d'Industrie de Belgique, du Grand-Duché de Luxembourg et de la Côte d'Ivoire.",
                         "service_item_list" => [
                             [
+                                "imgUrl" => "",
                                 "number" => "01",
                                 "title" => "Propositions d'affaires",
                                 "description" => "À la recherche de nouveaux partenariats commerciaux avec des entreprises ivoiriennes ou belges ? La BELUCI vous offre une variété d'opportunités grâce à ses répertoires d'entreprises, ses annuaires professionnels et ses bases de données sectorielles.",
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "02",
                                 "title" => "Networking",
                                 "description" => "Boostez votre réseau professionnel en participant à nos événements de networking. Élargissez vos contacts professionnels, créez de nouveaux partenariats et dynamisez votre activité.",
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "03",
                                 "title" => "Espace Membre",
                                 "description" => "Notre application communautaire vous permet de maintenir le contact avec nos membres et de promouvoir vos services de manière continue.",
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "04",
                                 "title" => "Informations & communications",
                                 "description" => "Restez à jour avec les dernières actualités nationales avec nous ! Soyez les premiers à être informés dès qu'une nouvelle importante se produit.",
@@ -249,18 +255,22 @@ class PageSeeder extends Seeder
                         "title" => "Que propose le projet « PEM N'Zassa ? »",
                         "feature_item_list" => [
                             [
+                                "imgUrl" => "",
                                 "number" => "01",
                                 "description" => "Accès à des réseaux d'entrepreneurs, d'entreprises et d'incubateurs en Côte d'Ivoire et en Belgique."
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "02",
                                 "description" => "Un processus de sélection rigoureux pour un matching avec une ou plusieurs entreprises ivoiriennes ou belges."
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "03",
                                 "description" => "Une mise en relation avec les agences publiques ivoiriennes ou belges."
                             ],
                             [
+                                "imgUrl" => "",
                                 "number" => "04",
                                 "description" => "Une organisation d'événements et de rencontres B2B avec des entrepreneurs ivoiriens et belges."
                             ]
