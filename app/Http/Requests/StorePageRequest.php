@@ -25,6 +25,7 @@ class StorePageRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'slug' => 'required|string|unique',
 			'description' => 'required|string',
 			'keywords' => 'required|string',
 			'display_img_url' => 'required|string',

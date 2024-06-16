@@ -60,7 +60,7 @@ class PageController extends Controller
         $page = new Page;
 
         $page->title = $validated['title'] ?? null;
-        $page->slug = $validated['title'] ?? null;
+        $page->slug = $validated['slug'] ?? null;
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;
@@ -134,7 +134,7 @@ class PageController extends Controller
         $validated = $request->validated();
 
         $page->title = $validated['title'] ?? null;
-        $page->slug = $validated['title'] ?? null;
+        $page->slug = $validated['slug'] ?? null;
 		$page->description = $validated['description'] ?? null;
 		$page->keywords = $validated['keywords'] ?? null;
 		$page->display_img_url = $validated['display_img_url'] ?? null;

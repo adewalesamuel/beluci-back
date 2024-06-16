@@ -353,6 +353,25 @@ class PageSeeder extends Seeder
                         "description" => "Remplissez le formulaire de contact",
                     ]
                 ])
+                    ],
+            [
+                'title' => "Liste des membres",
+                'slug' => 'membres',
+                'description' => "La page de membres",
+                'keywords' => 'membres',
+                'display_img_url' => '',
+                "section_list" => json_encode([
+                    [
+                        "name" => "titleHeader",
+                        "title" => "Nos membres",
+                        "backgroundImgUrl" => ''
+                    ],
+                    [
+                        "name" => "eventAbout",
+                        "title" => "Liste des membres",
+                        "description" => "Vous trouverez ici la list de nos membres",
+                    ]
+                ])
             ]
 
         ]);

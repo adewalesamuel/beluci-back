@@ -24,7 +24,8 @@ class UpdatePageRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'nullable|string',
+            'title' => 'required|string',
+            'slug' => 'required|string',
 			'description' => 'nullable|string',
 			'keywords' => 'nullable|string',
 			'display_img_url' => 'nullable|string',

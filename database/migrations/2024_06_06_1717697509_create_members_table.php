@@ -22,10 +22,10 @@ class CreateMembersTable extends Migration
 			$table->string('address')->nullable()->default('');
 			$table->string('website_url')->nullable()->default('');
 			$table->string('fullname')->nullable()->default('');
-			$table->date('creation_date');
-			$table->integer('employee_number');
+			$table->date('creation_date')->nullable();
+			$table->integer('employee_number')->nullable();
 			$table->string('legal_status')->nullable()->default('');
-			$table->integer('share_capital');
+			$table->integer('share_capital')->nullable();
 			$table->string('sector')->nullable()->default('');
 			$table->text('other_details')->nullable()->default('');
 			$table->enum('company_category', [
@@ -35,8 +35,8 @@ class CreateMembersTable extends Migration
 			$table->string('representative_fullname')->nullable()->default('');
 			$table->string('position')->nullable()->default('');
 			$table->string('nationality')->nullable()->default('');
-			$table->string('email')->unique();
-			$table->string('phone_number')->unique();
+			$table->string('email')->nullable();
+			$table->string('phone_number')->nullable();
 			$table->string('sales_representative_fullname')->nullable()->default('');
 			$table->string('sales_representative_position')->nullable()->default('');
 			$table->string('sales_representative_email')->nullable()->default('');
