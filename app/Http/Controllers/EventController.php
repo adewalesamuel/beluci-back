@@ -19,7 +19,7 @@ class EventController extends Controller
     public function index(Request $request)
     {
     	$events = Event::where('id', '>', -1)
-        ->orderBy('created_at', 'desc');
+        ->orderBy('date', 'desc');
 
         if ($request->input('page') == null ||
             $request->input('page') == '') {

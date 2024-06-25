@@ -28,6 +28,7 @@ class StoreGalleryRequest extends FormRequest
 			'title' => 'required|string',
 			'slug' => 'nullable|string|unique:galleries',
 			'description' => 'required|string',
+            'gallery_type_id' => 'nullable|integer|exists:gallery_types,id'
 
         ];
     }

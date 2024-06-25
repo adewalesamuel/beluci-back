@@ -1,15 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGalleryTypeRequest;
+use App\Http\Requests\UpdateGalleryTypeRequest;
+use App\Models\GalleryType;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use App\Models\Gallery;
-use App\Http\Auth;
-use App\Http\Requests\StoreGalleryRequest;
-use App\Http\Requests\UpdateGalleryRequest;
+use PhpParser\Node\Expr\Throw_;
 
-
-class GalleryController extends Controller
+class GalleryTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,19 +17,29 @@ class GalleryController extends Controller
      */
     public function index(Request $request)
     {
-    	$gallerys = Gallery::with(['gallery_type'])
+    	$gallery_types = GalleryType::where('id', '>', -1)
         ->orderBy('created_at', 'desc');
 
         if ($request->input('page') == null ||
             $request->input('page') == '') {
-            $gallerys = $gallerys->get();
+            $gallery_types = $gallery_types->get();
         } else {
-            $gallerys = $gallerys->paginate();
+            $gallery_types = $gallery_types->paginate();
         }
 
         $data = [
             'success' => true,
-            'gallerys' => $gallerys
+            'gallery_types' => $gallery_types
+        ];
+
+        return response()->json($data);
+    }
+
+    public function gallery_index(GalleryType $gallery_type)
+    {
+        $data = [
+            'success' => true,
+            'galleries' => $gallery_type->galleries()->orderBy('created_at')->get()
         ];
 
         return response()->json($data);
@@ -52,23 +61,21 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGalleryRequest $request)
+    public function store(StoreGalleryTypeRequest $request)
     {
         $validated = $request->validated();
 
-        $gallery = new Gallery;
+        $gallery_type = new GalleryType;
 
-        $gallery->img_url = $validated['img_url'] ?? null;
-		$gallery->title = $validated['title'] ?? null;
-		$gallery->slug = $validated['title'] ?? null;
-		$gallery->description = $validated['description'] ?? null;
-		$gallery->gallery_type_id = $validated['gallery_type_id'] ?? null;
+        $gallery_type->display_img_url = $validated['display_img_url'] ?? null;
+		$gallery_type->name = $validated['name'] ?? null;
+		$gallery_type->slug = $validated['name'] ?? null;
 
-        $gallery->save();
+        $gallery_type->save();
 
         $data = [
             'success'       => true,
-            'gallery'   => $gallery
+            'gallery_type'   => $gallery_type
         ];
 
         return response()->json($data);
@@ -77,14 +84,14 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Gallery  $gallery_type
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show(GalleryType $gallery_type)
     {
         $data = [
             'success' => true,
-            'gallery' => $gallery
+            'gallery_type' => $gallery_type
         ];
 
         return response()->json($data);
@@ -93,10 +100,10 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Gallery  $gallery_type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit(GalleryType $gallery_type)
     {
         //
     }
@@ -105,24 +112,22 @@ class GalleryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Gallery  $gallery_type
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGalleryRequest $request, Gallery $gallery)
+    public function update(UpdateGalleryTypeRequest $request, GalleryType $gallery_type)
     {
         $validated = $request->validated();
 
-        $gallery->img_url = $validated['img_url'] ?? null;
-		$gallery->title = $validated['title'] ?? null;
-		$gallery->slug = $validated['title'] ?? null;
-		$gallery->description = $validated['description'] ?? null;
-		$gallery->gallery_type_id = $validated['gallery_type_id'] ?? null;
+        $gallery_type->display_img_url = $validated['display_img_url'] ?? null;
+		$gallery_type->name = $validated['name'] ?? null;
+		$gallery_type->slug = $validated['name'] ?? null;
 
-        $gallery->save();
+        $gallery_type->save();
 
         $data = [
             'success'       => true,
-            'gallery'   => $gallery
+            'gallery_type'   => $gallery_type
         ];
 
         return response()->json($data);
@@ -131,16 +136,16 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Gallery  $gallery_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(GalleryType $gallery_type)
     {
-        $gallery->delete();
+        $gallery_type->delete();
 
         $data = [
             'success' => true,
-            'gallery' => $gallery
+            'gallery_type' => $gallery_type
         ];
 
         return response()->json($data);

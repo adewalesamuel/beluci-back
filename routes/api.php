@@ -16,6 +16,7 @@ use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\GalleryTypeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PostController;
 
@@ -38,6 +39,9 @@ Route::get('site', [SiteController::class, 'show']);
 
 Route::get('gallerys',[GalleryController::class, 'index']);
 Route::get('gallerys/{gallery}', [GalleryController::class, 'show']);
+
+Route::get('gallery-types',[GalleryTypeController::class, 'index']);
+Route::get('gallery-types/{gallery-type}', [GalleryTypeController::class, 'show']);
 
 
 Route::get('categorys',[CategoryController::class, 'index']);
@@ -107,6 +111,12 @@ Route::prefix('admin')->group(function() {
         Route::get('gallerys/{gallery}', [GalleryController::class, 'show']);
         Route::put('gallerys/{gallery}', [GalleryController::class, 'update']);
         Route::delete('gallerys/{gallery}', [GalleryController::class, 'destroy']);
+
+        Route::get('gallery-types',[GalleryTypeController::class, 'index']);
+        Route::post('gallery-types',[GalleryTypeController::class, 'store']);
+        Route::get('gallery-types/{gallery_type}', [GalleryTypeController::class, 'show']);
+        Route::put('gallery-types/{gallery_type}', [GalleryTypeController::class, 'update']);
+        Route::delete('gallery-types/{gallery_type}', [GalleryTypeController::class, 'destroy']);
 
         Route::get('admins',[AdminController::class, 'index']);
         Route::post('admins',[AdminController::class, 'store']);

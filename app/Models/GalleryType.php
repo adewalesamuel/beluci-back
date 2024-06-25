@@ -5,23 +5,22 @@ namespace App\Models;
 use App\Casts\Slugify;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Gallery extends Model
+class GalleryType extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
-     * Get the gallery_type that owns the Gallery
+     * Get all of the galleries for the GalleryType
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function gallery_type()
+    public function galleries()
     {
-        return $this->belongsTo(GalleryType::class);
+        return $this->hasMany(Gallery::class);
     }
 
-     /**
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -32,5 +31,4 @@ class Gallery extends Model
             'slug' => Slugify::class,
         ];
     }
-
 }
