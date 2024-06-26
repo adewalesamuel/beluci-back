@@ -41,8 +41,8 @@ Route::get('gallerys',[GalleryController::class, 'index']);
 Route::get('gallerys/{gallery}', [GalleryController::class, 'show']);
 
 Route::get('gallery-types',[GalleryTypeController::class, 'index']);
-Route::get('gallery-types/{gallery-type}', [GalleryTypeController::class, 'show']);
-
+Route::get('gallery-types/{gallery_type}', [GalleryTypeController::class, 'show']);
+Route::get('gallery-types/{gallery_type}/gallerys', [GalleryTypeController::class, 'gallery_index']);
 
 Route::get('categorys',[CategoryController::class, 'index']);
 

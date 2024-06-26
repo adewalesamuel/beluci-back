@@ -39,7 +39,8 @@ class GalleryTypeController extends Controller
     {
         $data = [
             'success' => true,
-            'galleries' => $gallery_type->galleries()->orderBy('created_at')->get()
+            'galleries' => $gallery_type->galleries()
+            ->orderBy('created_at')->get()
         ];
 
         return response()->json($data);

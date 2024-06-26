@@ -25,12 +25,12 @@ class StorePageRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'slug' => 'required|string|unique',
+            'slug' => 'required|string|unique:pages',
 			'description' => 'required|string',
 			'keywords' => 'required|string',
 			'display_img_url' => 'required|string',
 			'section_list' => 'required|json',
-			
+
         ];
     }
 }
