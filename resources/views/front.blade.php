@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Beluci</title>
-    <script type="module" crossorigin src="/front/assets/index-N2OxQSUv.js"></script>
+    <script type="module" crossorigin src="/front/assets/index-BbSOu6DV.js"></script>
     <link rel="stylesheet" crossorigin href="/front/assets/index-4pbRS3mM.css">
   </head>
   <body>
