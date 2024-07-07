@@ -52,6 +52,7 @@ class UpdateMemberRequest extends FormRequest
 			'commercial_register_url' => 'nullable|string',
 			'idcard_url' => 'nullable|string',
 			'password' => 'nullable|string',
+            'is_validated' => 'nullable|boolean',
 			'member_id' => 'nullable|integer|exists:members,id',
 
         ];

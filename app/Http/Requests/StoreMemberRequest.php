@@ -51,7 +51,8 @@ class StoreMemberRequest extends FormRequest
 			'photo_url' => 'nullable|string',
 			'commercial_register_url' => 'nullable|string',
 			'idcard_url' => 'nullable|string',
-			'password' => 'required|string|unique:members',
+			'password' => 'nullable|string',
+            'is_validated' => 'nullable|boolean',
 			'member_id' => 'nullable|integer|exists:members,id',
 
         ];

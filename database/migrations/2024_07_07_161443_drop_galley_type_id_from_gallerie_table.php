@@ -12,10 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('galleries', function (Blueprint $table) {
-            $table->foreignId('gallery_type_id')
-            ->nullable()
-            ->constrained()
-            ->nullOnDelete();
+            $table->dropColumn('gallery_type_id');
         });
     }
 
@@ -25,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('galleries', function (Blueprint $table) {
-            $table->dropColumn('gallery_type_id');
+            //
         });
     }
 };

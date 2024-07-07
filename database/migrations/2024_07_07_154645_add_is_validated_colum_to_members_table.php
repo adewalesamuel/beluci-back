@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('galleries', function (Blueprint $table) {
-            $table->foreignId('gallery_type_id')
-            ->nullable()
-            ->constrained()
-            ->nullOnDelete();
+        Schema::table('members', function (Blueprint $table) {
+            $table->boolean('is_validated')->nullable();
         });
     }
 
@@ -24,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('galleries', function (Blueprint $table) {
-            $table->dropColumn('gallery_type_id');
+        Schema::table('members', function (Blueprint $table) {
+            $table->dropColumn('is_validated');
         });
     }
 };

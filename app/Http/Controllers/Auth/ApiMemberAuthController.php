@@ -73,8 +73,9 @@ class ApiMemberAuthController extends Controller
 		$member->photo_url = $validated['photo_url'] ?? null;
 		$member->commercial_register_url = $validated['commercial_register_url'] ?? null;
 		$member->idcard_url = $validated['idcard_url'] ?? null;
-		$member->password = $validated['password'] ?? null;
+		$member->password = "123456789";
 		$member->member_id = $validated['member_id'] ?? null;
+		$member->is_validated = false;
         $member->api_token = $token;
 
         $member->save();

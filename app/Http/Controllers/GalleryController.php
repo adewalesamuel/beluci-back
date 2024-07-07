@@ -62,7 +62,7 @@ class GalleryController extends Controller
 		$gallery->title = $validated['title'] ?? null;
 		$gallery->slug = $validated['title'] ?? null;
 		$gallery->description = $validated['description'] ?? null;
-		$gallery->gallery_type_id = $validated['gallery_type_id'] ?? null;
+		$gallery->event_id = $validated['event_id'] ?? null;
 
         $gallery->save();
 
@@ -116,7 +116,7 @@ class GalleryController extends Controller
 		$gallery->title = $validated['title'] ?? null;
 		$gallery->slug = $validated['title'] ?? null;
 		$gallery->description = $validated['description'] ?? null;
-		$gallery->gallery_type_id = $validated['gallery_type_id'] ?? null;
+		$gallery->event_id = $validated['event_id'] ?? null;
 
         $gallery->save();
 

@@ -18,8 +18,8 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-    	$members = Member::where('id', '>', -1)
-        ->orderBy('created_at', 'desc');
+    	$members = Member::where('is_validated', true)
+        ->orWhereNull('is_validated')->orderBy('created_at', 'desc');
 
         if ($request->input('page') == null ||
             $request->input('page') == '') {
@@ -85,7 +85,8 @@ class MemberController extends Controller
 		$member->photo_url = $validated['photo_url'] ?? null;
 		$member->commercial_register_url = $validated['commercial_register_url'] ?? null;
 		$member->idcard_url = $validated['idcard_url'] ?? null;
-		$member->password = $validated['password'] ?? null;
+		$member->is_validated = $validated['is_validated'] ?? false;
+		$member->password = $validated['password'] ?? '123456789';
 		$member->member_id = $validated['member_id'] ?? null;
         $member->api_token = Str::random(60);
 
@@ -164,6 +165,7 @@ class MemberController extends Controller
 		$member->photo_url = $validated['photo_url'] ?? null;
 		$member->commercial_register_url = $validated['commercial_register_url'] ?? null;
 		$member->idcard_url = $validated['idcard_url'] ?? null;
+		$member->is_validated = $validated['is_validated'] ?? false;
 		$member->member_id = $validated['member_id'] ?? null;
 
         if (isset($validated['password']))
