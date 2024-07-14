@@ -37,13 +37,6 @@ Route::post('login', [ApiMemberAuthController::class, 'login']);
 
 Route::get('site', [SiteController::class, 'show']);
 
-Route::get('gallerys',[GalleryController::class, 'index']);
-Route::get('gallerys/{gallery}', [GalleryController::class, 'show']);
-
-Route::get('gallery-types',[GalleryTypeController::class, 'index']);
-Route::get('gallery-types/{gallery_type}', [GalleryTypeController::class, 'show']);
-Route::get('gallery-types/{gallery_type}/gallerys', [GalleryTypeController::class, 'gallery_index']);
-
 Route::get('categorys',[CategoryController::class, 'index']);
 
 Route::get('categorys/{category}', [CategoryController::class, 'show']);
@@ -60,6 +53,7 @@ Route::get('pages/{slug}', [PageController::class, 'slug_show']);
 
 Route::get('events',[EventController::class, 'index']);
 Route::get('events/{event}', [EventController::class, 'show']);
+Route::get('events/{event}/gallerys', [EventController::class, 'gallery_index']);
 
 Route::get('posts',[PostController::class, 'index']);
 Route::get('posts/{post}', [PostController::class, 'show']);
@@ -153,6 +147,7 @@ Route::prefix('admin')->group(function() {
         Route::get('events/{event}', [EventController::class, 'show']);
         Route::put('events/{event}', [EventController::class, 'update']);
         Route::delete('events/{event}', [EventController::class, 'destroy']);
+        Route::get('events/{event}/gallerys', [EventController::class, 'gallery_index']);
 
         Route::get('members',[MemberController::class, 'index']);
         Route::post('members',[MemberController::class, 'store']);

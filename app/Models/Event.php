@@ -23,4 +23,14 @@ class Event extends Model
         ];
     }
 
+    /**
+     * Get all of the galleries for the Event
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
 }

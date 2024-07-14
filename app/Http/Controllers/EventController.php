@@ -36,6 +36,16 @@ class EventController extends Controller
         return response()->json($data);
     }
 
+    public function gallery_index(Request $request, Event $event) {
+        $data = [
+            'success' => true,
+            'gallerys' => $event->galleries()
+            ->orderBy('created_at', 'desc')->get()
+        ];
+
+        return response()->json($data, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
