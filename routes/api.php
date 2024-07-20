@@ -155,6 +155,8 @@ Route::prefix('admin')->group(function() {
         Route::put('members/{member}', [MemberController::class, 'update']);
         Route::delete('members/{member}', [MemberController::class, 'destroy']);
 
+        Route::post('members/{member}/validate', [MemberController::class, 'validate']);
+
         Route::get('posts',[PostController::class, 'index']);
         Route::post('posts',[PostController::class, 'store']);
         Route::get('posts/{post}', [PostController::class, 'show']);

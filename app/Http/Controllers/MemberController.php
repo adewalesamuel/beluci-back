@@ -7,7 +7,8 @@ use App\Models\Member;
 use App\Http\Auth;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
-
+use App\Jobs\MailNotificationJob;
+use App\Notifications\MemberValidatedNotification;
 
 class MemberController extends Controller
 {
@@ -179,6 +180,23 @@ class MemberController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function validate(Request $request, Member $member) {
+        $member->is_validated = true;
+        $member->password = substr($member->company_name, 0, 3) . "1234";
+
+        $member->save();
+
+        MailNotificationJob::dispatchAfterResponse(
+            $member, new MemberValidatedNotification($member));
+
+        $data = [
+            "sucess" => true,
+            'member' => $member
+        ];
+
+        return response()->json($data, 200);
     }
 
     /**
