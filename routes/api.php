@@ -16,8 +16,11 @@ use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ForumCategoryController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\GalleryTypeController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 
 
@@ -71,6 +74,20 @@ Route::middleware(['auth.api_token:member'])->group(function() {
     Route::get('members',[MemberController::class, 'index']);
     Route::get('members/{member}', [MemberController::class, 'show']);
 
+    Route::get('forums',[ForumController::class, 'index']);
+    Route::post('forums',[ForumController::class, 'user_store']);
+    Route::get('forums/{forum}', [ForumController::class, 'show']);
+    Route::put('forums/{forum}', [ForumController::class, 'user_update']);
+    Route::delete('forums/{forum}', [ForumController::class, 'user_destroy']);
+
+    Route::get('forum-categorys',[ForumCategoryController::class, 'index']);
+    Route::get('forum-categorys/forums',[ForumCategoryController::class, 'forums']);
+
+    Route::get('forums/{forum}/messages',[MessageController::class, 'forum_index']);
+    Route::post('messages/{message}', [MessageController::class, 'user_store']);
+    Route::get('messages/{message}', [MessageController::class, 'show']);
+    Route::put('messages/{message}', [MessageController::class, 'user_update']);
+    Route::delete('messages/{message}', [MessageController::class, 'user_destroy']);
 });
 
 Route::prefix('admin')->group(function() {
@@ -162,6 +179,24 @@ Route::prefix('admin')->group(function() {
         Route::get('posts/{post}', [PostController::class, 'show']);
         Route::put('posts/{post}', [PostController::class, 'update']);
         Route::delete('posts/{post}', [PostController::class, 'destroy']);
+
+        Route::get('forum-categorys',[ForumCategoryController::class, 'index']);
+        Route::post('forum-categorys',[ForumCategoryController::class, 'store']);
+        Route::get('forum-categorys/{forum_category}', [ForumCategoryController::class, 'show']);
+        Route::put('forum-categorys/{forum_category}', [ForumCategoryController::class, 'update']);
+        Route::delete('forum-categorys/{forum_category}', [ForumCategoryController::class, 'destroy']);
+
+        Route::get('forums',[ForumController::class, 'index']);
+        Route::post('forums',[ForumController::class, 'store']);
+        Route::get('forums/{forum}', [ForumController::class, 'show']);
+        Route::put('forums/{forum}', [ForumController::class, 'update']);
+        Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
+
+        Route::get('messages',[MessageController::class, 'index']);
+        Route::post('messages',[MessageController::class, 'store']);
+        Route::get('messages/{message}', [MessageController::class, 'show']);
+        Route::put('messages/{message}', [MessageController::class, 'update']);
+        Route::delete('messages/{message}', [MessageController::class, 'destroy']);
 
     });
 });
