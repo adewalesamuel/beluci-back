@@ -84,7 +84,7 @@ Route::middleware(['auth.api_token:member'])->group(function() {
     Route::get('forum-categorys/forums',[ForumCategoryController::class, 'forums']);
 
     Route::get('forums/{forum}/messages',[MessageController::class, 'forum_index']);
-    Route::post('messages/{message}', [MessageController::class, 'user_store']);
+    Route::post('messages', [MessageController::class, 'user_store']);
     Route::get('messages/{message}', [MessageController::class, 'show']);
     Route::put('messages/{message}', [MessageController::class, 'user_update']);
     Route::delete('messages/{message}', [MessageController::class, 'user_destroy']);

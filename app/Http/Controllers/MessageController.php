@@ -8,6 +8,7 @@ use App\Http\Auth;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Forum;
+use Exception;
 
 class MessageController extends Controller
 {

@@ -5,14 +5,14 @@ namespace App\Http;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
-
+use App\Models\Member;
 
 class Auth {
     public const ADMIN = "admin";
     public const USER = "user";
 
     public static function getUser(Request $request, string $type='user')
-    {   
+    {
         $token = $request->header('Authorization') ?
          explode(" ", $request->header('Authorization'))[1] : null;
         $user = null;
@@ -32,14 +32,14 @@ class Auth {
         return $user;
     }
 
-    private static function getAdminByToken(string $token) 
+    private static function getAdminByToken(string $token)
     {
         return Admin::where('api_token', $token)->first();
     }
 
     private static function getUserByToken($token)
     {
-        return User::where('api_token', $token)->first();
-   
+        return Member::where('api_token', $token)->first();
+
     }
 }

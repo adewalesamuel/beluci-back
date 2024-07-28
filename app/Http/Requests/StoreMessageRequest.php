@@ -25,9 +25,9 @@ class StoreMessageRequest extends FormRequest
     {
         return [
             'content' => 'required|string',
-			'member_id' => 'required|integer|exists:members,id',
+			'member_id' => 'nullable|integer|exists:members,id',
 			'forum_id' => 'required|integer|exists:forums,id',
-			
+
         ];
     }
 }

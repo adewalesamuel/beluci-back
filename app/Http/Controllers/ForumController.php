@@ -78,6 +78,7 @@ class ForumController extends Controller
 
     public function user_store(StoreForumRequest $request) {
         $auth_user = Auth::getUser($request, Auth::USER);
+        $validated = $request->validated();
 
         $forum = new Forum;
 

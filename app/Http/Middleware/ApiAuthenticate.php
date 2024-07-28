@@ -26,7 +26,7 @@ class ApiAuthenticate
             case 'admin':
                 $user = Admin::where("api_token", $token);
                 break;
-            case 'user':
+            case 'member':
                 $user = Member::where("api_token", $token);
             default:
                 $user = Member::where("api_token", $token);
