@@ -72,6 +72,8 @@ Route::middleware(['auth.api_token:member'])->group(function() {
     Route::post('logout', [ApiMemberAuthController::class, 'logout']);
 
     Route::get('members',[MemberController::class, 'index']);
+    Route::get('members/{member}', [MemberController::class, 'show']);
+
     Route::put('profile', [MemberController::class, 'profile_update']);
     Route::get('profile', [MemberController::class, 'profile_show']);
 
