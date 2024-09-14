@@ -19,8 +19,21 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-    	$members = Member::where('is_validated', true)
-        ->orWhereNull('is_validated')->orderBy('created_at', 'desc');
+    	$members = Member::where('is_validated', true);
+        $query = $request->input('query');
+
+        if (isset($query)) {
+            $members = $members->where(function($memberQuery) use ($query) {
+                return $memberQuery->where('email', 'like', "%$query%")
+                    ->orWhere('company_name', 'like', "%$query%")
+                    ->orWhere('country_name', 'like', "%$query%")
+                    ->orWhere('address', 'like', "%$query%")
+                    ->orWhere('fullname', 'like', "%$query%")
+                    ->orWhere('sector', 'like', "%$query%");
+            });
+        }
+
+        $members = $members->orderBy('created_at', 'desc');
 
         if ($request->input('page') == null ||
             $request->input('page') == '') {
