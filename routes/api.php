@@ -74,6 +74,8 @@ Route::middleware(['auth.api_token:member'])->group(function() {
     Route::get('members',[MemberController::class, 'index']);
     Route::get('members/{member}', [MemberController::class, 'show']);
 
+    Route::post('message', [ContactController::class, 'member_message']);
+
     Route::put('profile', [MemberController::class, 'profile_update']);
     Route::get('profile', [MemberController::class, 'profile_show']);
 
