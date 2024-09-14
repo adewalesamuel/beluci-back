@@ -19,12 +19,17 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-    	$members = Member::where('is_validated', true);
+        $members = Member::where('id', '>', 1);
         $query = $request->input('query');
+
+    	$members = Member::where(function($memberQuery) {
+            return $memberQuery->where('is_validated', true)
+            ->orWhereNull('is_validated');
+        });
 
         if (isset($query)) {
             $members = $members->where(function($memberQuery) use ($query) {
-                return $memberQuery->where('email', 'like', "%$query%")
+                return $memberQuery->orWhere('email', 'like', "%$query%")
                     ->orWhere('company_name', 'like', "%$query%")
                     ->orWhere('country_name', 'like', "%$query%")
                     ->orWhere('address', 'like', "%$query%")
@@ -39,7 +44,7 @@ class MemberController extends Controller
             $request->input('page') == '') {
             $members = $members->get();
         } else {
-            $members = $members->paginate();
+            $members = $members->paginate(isset($query) ? 100 : '');
         }
 
         $data = [
