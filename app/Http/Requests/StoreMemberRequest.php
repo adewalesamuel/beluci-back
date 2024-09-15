@@ -54,6 +54,8 @@ class StoreMemberRequest extends FormRequest
 			'password' => 'nullable|string',
             'is_validated' => 'nullable|boolean',
 			'member_id' => 'nullable|integer|exists:members,id',
+            'member_source' => 'nullable|string',
+            'sales_representative_nationality' => 'nullable|string',
 
         ];
     }

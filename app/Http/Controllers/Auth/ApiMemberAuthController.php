@@ -77,6 +77,8 @@ class ApiMemberAuthController extends Controller
 		$member->member_id = $validated['member_id'] ?? null;
 		$member->is_validated = false;
         $member->api_token = $token;
+        $member->member_source = $validated['member_source'] ?? null;
+        $member->sales_representative_nationality = $validated['sales_representative_nationality'] ?? null;
 
         $member->save();
 
