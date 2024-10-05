@@ -38,6 +38,7 @@ class UpdateMemberRequest extends FormRequest
 			'sector' => 'nullable|string',
 			'other_details' => 'nullable|string',
 			'company_category' => 'nullable|string',
+            'parent_company' => 'nullable|string',
 			'representative_fullname' => 'nullable|string',
 			'position' => 'nullable|string',
 			'nationality' => 'nullable|string',

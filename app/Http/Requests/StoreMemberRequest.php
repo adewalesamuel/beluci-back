@@ -38,6 +38,7 @@ class StoreMemberRequest extends FormRequest
 			'sector' => 'required|string',
 			'other_details' => 'required|string',
 			'company_category' => 'required|string',
+			'parent_company' => 'nullable|string',
 			'representative_fullname' => 'required|string',
 			'position' => 'required|string',
 			'nationality' => 'required|string',

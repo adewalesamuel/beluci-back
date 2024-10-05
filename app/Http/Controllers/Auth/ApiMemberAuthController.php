@@ -60,6 +60,7 @@ class ApiMemberAuthController extends Controller
 		$member->sector = $validated['sector'] ?? null;
 		$member->other_details = $validated['other_details'] ?? null;
 		$member->company_category = $validated['company_category'] ?? null;
+        $member->parent_company = $validated['parent_company'] ?? null;
 		$member->representative_fullname = $validated['representative_fullname'] ?? null;
 		$member->position = $validated['position'] ?? null;
 		$member->nationality = $validated['nationality'] ?? null;
@@ -75,7 +76,6 @@ class ApiMemberAuthController extends Controller
 		$member->idcard_url = $validated['idcard_url'] ?? null;
 		$member->password = "123456789";
 		$member->member_id = $validated['member_id'] ?? null;
-		$member->is_validated = false;
         $member->api_token = $token;
         $member->member_source = $validated['member_source'] ?? null;
         $member->sales_representative_nationality = $validated['sales_representative_nationality'] ?? null;

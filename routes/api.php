@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\ApiAdminAuthController;
 use App\Http\Controllers\Auth\ApiMemberAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PageController;
@@ -100,6 +101,8 @@ Route::prefix('admin')->group(function() {
 
     Route::middleware('auth.api_token:admin')->group(function() {
         Route::post('logout', [ApiAdminAuthController::class, 'logout']);
+
+        Route::get('analytics', [DashboardController::class, 'admin_index']);
 
         Route::post('upload/image', [FileController::class, 'image_store']);
         Route::post('upload/file', [FileController::class, 'file_store']);
