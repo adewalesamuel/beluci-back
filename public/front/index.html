@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="La Chambre de commerce belge et luxembourgeoise de Côte d'ivoire a pour mission d’accompagner les sociétés belgo-luxembourgeoises en Côte d’Ivoire." />
     <title>Chambre de commerce belge et luxembourgeoise de Côte d'Ivoire - Beluci</title>
-    <script type="module" crossorigin src="/front/assets/index-Dp6eFZyN.js"></script>
+    <script type="module" crossorigin src="/front/assets/index-s9DyGNuU.js"></script>
     <link rel="stylesheet" crossorigin href="/front/assets/index-u6JsLh9j.css">
   </head>
   <body>
