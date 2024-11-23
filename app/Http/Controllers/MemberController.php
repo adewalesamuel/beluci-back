@@ -110,6 +110,7 @@ class MemberController extends Controller
         $member->member_source = $validated['member_source'] ?? null;
         $member->sales_representative_nationality = $validated['sales_representative_nationality'] ?? null;
         $member->api_token = Str::random(60);
+        $member->is_validated = $validated['is_validated'] ?? null;
 
         $member->save();
 
@@ -202,6 +203,7 @@ class MemberController extends Controller
 		$member->member_id = $validated['member_id'] ?? null;
         $member->member_source = $validated['member_source'] ?? null;
         $member->sales_representative_nationality = $validated['sales_representative_nationality'] ?? null;
+        $member->is_validated = $validated['is_validated'] ?? null;
 
         if (isset($validated['password']))
             $member->password = $validated['password'] ?? null;
