@@ -176,9 +176,11 @@ Route::prefix('admin')->group(function() {
 
         Route::get('members',[MemberController::class, 'index']);
         Route::post('members',[MemberController::class, 'store']);
+        Route::get('members/trashed', [MemberController::class, 'trashed_index']);
         Route::get('members/{member}', [MemberController::class, 'show']);
         Route::put('members/{member}', [MemberController::class, 'update']);
         Route::delete('members/{member}', [MemberController::class, 'destroy']);
+        Route::post('members/{id}/restore', [MemberController::class, 'restore']);
 
         Route::post('members/{member}/validate', [MemberController::class, 'validate']);
 

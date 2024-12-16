@@ -55,6 +55,15 @@ class MemberController extends Controller
         return response()->json($data);
     }
 
+    public function trashed_index(Request $request) {
+        $data = [
+            'success' => true,
+            'members' => Member::onlyTrashed()->paginate()
+        ];
+
+        return response()->json($data, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -297,5 +306,17 @@ class MemberController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function restore(int $id) {
+        $member = Member::where('id', $id)->withTrashed()->firstOrFail();
+        $member->restore();
+
+        $data = [
+            'success' => true,
+            'member' => $member
+        ];
+
+        return response()->json($data, 200);
     }
 }
