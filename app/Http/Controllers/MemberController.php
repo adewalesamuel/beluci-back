@@ -19,10 +19,18 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-        $members = Member::where('id', '>', 1);
         $query = $request->input('query');
+        $is_validated = $request->input('is_validated');
+    	$members = Member::where(function($memberQuery) use($is_validated) {
+            if (isset($is_validated)) {
+                if (boolval(($is_validated)) === true) {
+                    return $memberQuery->where('is_validated', true);
+                } else {
+                    return $memberQuery->whereNull('is_validated');
+                }
 
-    	$members = Member::where(function($memberQuery) {
+            }
+
             return $memberQuery->where('is_validated', true)
             ->orWhereNull('is_validated');
         });
