@@ -98,7 +98,7 @@ class PageController extends Controller
         $page = Page::where('slug', $slug)->firstOrFail();
 
         if ($slug == "accueil")
-            $events = Event::orderBy('created_at', 'desc')->limit(1)->get();
+            $events = Event::orderBy('date', 'desc')->limit(1)->get();
 
         if (isset($page->section_list[1]))
             $page->section_list[1]['events'] = $events;
